@@ -13056,25 +13056,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-<style type="text/css">
-    body[data-notebook-name] > #header #header-container:not(.show-panel), /* body has data-notebook-name attribute when 
-a notebook is open. this rule won't be applied when the notebook is not open (in 404 view for example) */
-body[data-notebook-name] #menubar-container #maintoolbar:not(.show-panel),
-body[data-notebook-name] #menubar-container ul.navbar-nav:not(.show-panel) {
-  display: none;
-}
-
-#menubar.only-panel #menus.navbar-default {
-    background: #fff;
-    border-color: #fff;
-}
-
-.toolbar.with-statusbar{
-    margin-top: 3px;
-    margin-bottom: 0;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13108,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13196,7 +13177,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Import libraries</span>
@@ -13210,15 +13191,110 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">progressbar</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
-
 <span class="c1"># read in the json files</span>
-<span class="n">portfolio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/portfolio.json&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">profile</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/profile.json&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">transcript</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/transcript.json&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">portfolio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/portfolio.json&#39;</span><span class="p">,</span> 
+                        <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/profile.json&#39;</span><span class="p">,</span> 
+                       <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;data/transcript.json&#39;</span><span class="p">,</span> 
+                          <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transcript</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>person</th>
+      <th>event</th>
+      <th>value</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>78afa995795e4d85b5d9ceeca43f5fef</td>
+      <td>offer received</td>
+      <td>{'offer id': '9b98b8c7a33c4b65b9aebfe6a799e6d9'}</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a03223e636434f42ac4c3df47e8bac43</td>
+      <td>offer received</td>
+      <td>{'offer id': '0b1e1539f2cc45b7b9fa7c272da2e1d7'}</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>e2127556f4f64592b11af22de27a7932</td>
+      <td>offer received</td>
+      <td>{'offer id': '2906b810c7d4411798c6938adc9daaa5'}</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8ec6ce2a7e7949b1bf142def7d0e0586</td>
+      <td>offer received</td>
+      <td>{'offer id': 'fafdcd668e3743c1bb461111dcafc2a4'}</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>68617ca6246f4fbc85e91a2a49552598</td>
+      <td>offer received</td>
+      <td>{'offer id': '4d5c57ea9a6940dd891ad53e9dbe8da0'}</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13269,9 +13345,12 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Merge the three datasets into one final dataset</span>
-<span class="n">temp1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">transcript</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">])</span>
-<span class="n">portfolio</span> <span class="o">=</span> <span class="n">portfolio</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;offer_id&quot;</span><span class="p">})</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">temp1</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;offer_id&#39;</span><span class="p">])</span>
+<span class="n">temp1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">transcript</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> 
+                 <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">])</span>
+<span class="n">portfolio</span> <span class="o">=</span> <span class="n">portfolio</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;offer_id&quot;</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">temp1</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">,</span> 
+              <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;offer_id&#39;</span><span class="p">])</span>
 
 <span class="c1">#Show final dataset</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13430,7 +13509,8 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Create dummy variables</span>
 <span class="n">dummy_variables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> 
+               <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#Drop used column</span>
 <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;channels&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13613,7 +13693,8 @@ div#notebook {
 
 <span class="c1">#Create dummy variables for categorical data</span>
 <span class="n">dummy_variables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">offer_type</span><span class="p">)</span>
-<span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_final</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_final</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> 
+                     <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#Drop used column</span>
 <span class="n">df_final</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;offer_type&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13808,7 +13889,8 @@ div#notebook {
 
 <span class="c1">#Create dummy variables for gender</span>
 <span class="n">dummy_variables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">gender</span><span class="p">)</span>
-<span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_final</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_final</span><span class="p">,</span> <span class="n">dummy_variables</span><span class="p">],</span> 
+                     <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#Drop used column</span>
 <span class="n">df_final</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14012,7 +14094,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Change datatype to datetime</span>
-<span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;became_member_on&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;became_member_on&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;became_member_on&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;became_member_on&#39;</span><span class="p">]</span> <span class="p">,</span> 
+                                              <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1">#Create new column of year and month</span>
 <span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;member_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">became_member_on</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
@@ -14262,7 +14345,7 @@ dtype: object
 <span class="n">df_incomplete</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1">#Iterate over dataset</span>
-<span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_complete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_receive</span><span class="p">)):</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_complete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_receive</span><span class="p">):</span>
     <span class="n">loop_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_complete</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">loop_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_receive</span><span class="p">)</span>
@@ -14271,7 +14354,7 @@ dtype: object
 <span class="n">bar</span> <span class="o">=</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="n">loop_length</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">loop_length</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_complete</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_complete</span><span class="p">):</span>
         <span class="n">c_customer_id</span> <span class="o">=</span> <span class="n">df_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">customer_id</span>
         <span class="n">c_complete_time</span> <span class="o">=</span> <span class="n">df_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
         <span class="n">c_offer_id</span> <span class="o">=</span> <span class="n">df_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">offer_id</span>
@@ -14280,13 +14363,13 @@ dtype: object
         <span class="n">duration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_complete_time</span> <span class="o">-</span> <span class="p">(</span><span class="n">receive_offer</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">df_complete_receive</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">receive_offer</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         
-    <span class="k">if</span><span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_receive</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_receive</span><span class="p">):</span>
         <span class="n">i_customer_id</span> <span class="o">=</span> <span class="n">df_receive</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">customer_id</span>
         <span class="n">i_receive_time</span> <span class="o">=</span> <span class="n">df_receive</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
         <span class="n">i_offer_id</span> <span class="o">=</span> <span class="n">df_receive</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">offer_id</span>
     
-        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;offer completed&quot; and time &gt;= @i_receive_time and offer_id == @i_offer_id and customer_id == @i_customer_id&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="n">df_incomplete</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_receive</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="c1">#no completed offer found</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;offer completed&quot; and time &gt;= @i_receive_time and offer_id == @i_offer_id and customer_id == @i_customer_id&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">df_incomplete</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_receive</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1">#no completed offer found</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">pass</span>
     <span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -14366,14 +14449,16 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <span class="c1">#Plot histogram for completed offer</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;offer completed&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;offer completed&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours since the test&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of events&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Completed Offers by Hours&#39;</span><span class="p">)</span>
 
 <span class="c1">#Plot histogram for transactions</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;transaction&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;event == &quot;transaction&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours since the test&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of events&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Transactions by Hours&#39;</span><span class="p">)</span>
@@ -14445,7 +14530,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">700</span><span class="o">+</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 
 <span class="c1">#Plot histogram</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_complete</span><span class="o">.</span><span class="n">time_before_complete</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_complete</span><span class="o">.</span><span class="n">time_before_complete</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration Needed to Complete Offer&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Duration of Completed Offers by Hours&#39;</span><span class="p">)</span>
@@ -14503,7 +14589,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <span class="c1">#Plot histogram for Age in general</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Age in General&#39;</span><span class="p">);</span>
@@ -14511,9 +14598,12 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <span class="c1">#Plot histogram for Age Male and Female</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;M == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Male&#39;</span><span class="p">);</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;F == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Female&#39;</span><span class="p">);</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;O == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Other&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;M == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Male&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;F == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Female&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;O == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Other&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Age by Type&#39;</span><span class="p">);</span>
@@ -14587,16 +14677,20 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <span class="c1">#Plot histogram for users&#39; income in general</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Income&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Income&#39;</span><span class="p">);</span>
 
 <span class="c1">#Plot histogram for users based on gender</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;M == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Male&#39;</span><span class="p">);</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;F == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Female&#39;</span><span class="p">);</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;O == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Other&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;M == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Male&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;F == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Female&#39;</span><span class="p">);</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_final</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;O == 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">income</span><span class="p">,</span> 
+            <span class="n">bins</span><span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Other&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Income&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Income&#39;</span><span class="p">);</span>
@@ -14664,7 +14758,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot barplot by member&#39;s joining time of year</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2015</span><span class="p">,</span><span class="mi">2016</span><span class="p">,</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2018</span><span class="p">],</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_year&#39;</span><span class="p">)[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2015</span><span class="p">,</span><span class="mi">2016</span><span class="p">,</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2018</span><span class="p">],</span> 
+           <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_year&#39;</span><span class="p">)[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Member Joined&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Barplot of Member Joined per Year&#39;</span><span class="p">);</span>
@@ -14703,7 +14798,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot barplot by member&#39;s joining time of month</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)],</span> <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_month&#39;</span><span class="p">)[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)],</span> 
+           <span class="n">df_final</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_month&#39;</span><span class="p">)[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Member Joined&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Barplot of Member Joined per Month&#39;</span><span class="p">);</span>
@@ -14745,11 +14841,13 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <span class="n">complete</span> <span class="o">=</span> <span class="n">df_complete_receive</span>
 
 <span class="c1">#Create dataset and add new columns</span>
-<span class="n">incomplete</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">incomplete</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">incomplete</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">incomplete</span><span class="p">,</span> 
+                          <span class="n">columns</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">incomplete</span><span class="p">[</span><span class="s1">&#39;isComplete&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1">#Create dataset and add new columns</span>
-<span class="n">complete</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">complete</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">complete</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">complete</span><span class="p">,</span> 
+                        <span class="n">columns</span> <span class="o">=</span> <span class="n">df_final</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">complete</span><span class="p">[</span><span class="s1">&#39;isComplete&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -15184,6 +15282,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">complete</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">incomplete</span><span class="p">)</span>
+
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -15418,7 +15517,8 @@ Name: income, dtype: int64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot barplot by completion of offers</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="s1">&#39;Not Completed&#39;</span><span class="p">,</span><span class="s1">&#39;Completed&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;isComplete&#39;</span><span class="p">)[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">([</span><span class="s1">&#39;Not Completed&#39;</span><span class="p">,</span><span class="s1">&#39;Completed&#39;</span><span class="p">],</span> 
+           <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;isComplete&#39;</span><span class="p">)[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Completed Offers&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Offers&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Barplot of Member Offers Completed and Not Completed&#39;</span><span class="p">);</span>
@@ -15496,7 +15596,8 @@ Name: income, dtype: int64</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Splitting data to train and test set</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                                 <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15535,8 +15636,9 @@ Name: income, dtype: int64</pre>
 
 <span class="c1">#Define function for model testing</span>
 <span class="k">def</span> <span class="nf">test_model</span><span class="p">(</span><span class="n">classifier</span><span class="p">):</span>
+    <span class="c1"># This function declare model, fit them to the data, predict, then print the classification report</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">()</span>
-    <span class="bp">cls</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="bp">cls</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">cr</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
@@ -15816,7 +15918,7 @@ avg / total       0.80      0.80      0.80     13061
 
 <span class="c1">#Print classification report</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cr</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_hat_test</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cr</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_hat_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cr</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_hat_train</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -15873,11 +15975,15 @@ avg / total       0.80      0.80      0.80     13061
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot feature importances from previous search</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature importance (bigger = more important)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Feature Importances&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)),</span> <span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)),</span> 
+        <span class="n">classification_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 </pre></div>
 
     </div>

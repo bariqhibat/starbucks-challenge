@@ -58,6 +58,10 @@ At the end of the project, we also train a randomized search cv with RandomFores
     - Combines offer portfolio, customer demographic, and customer transaction data  
     - Generates training customer demographic data visualizations and computes summary statistics  
     - Generates machine learning models  
+- data
+  - portfolio.json
+  - profile.json
+  - transcript.json
 - Starbucks_Capstone_notebook.html 
 - README.md  
 	
