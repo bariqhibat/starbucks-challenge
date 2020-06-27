@@ -57,10 +57,6 @@ At the end of the project, we also train a randomized search cv with RandomFores
     4. Informational-type Offer
     5. The year the customer joined as a customer
 
-### Improvements and Difficulty
-
-In doing this project, I've found a few difficulties that you might find insights on. Firstly, the amount of NaN value in the project is a lot. You could spend more time on data-preprocessing in order to increase the metrics for the machine learning model. For example, take a look at the NaN values on each columns, and think of how you take on every single on of them. Even experts in data science will think twice what to do about NaN values, since every single one of them is case by case. Secondly and lastly, the rows of the dataset is also a lot. So, in doing the problems, I have to wait for an hour to finish separating the dataset to the complete offer and incomplete offer. I think there could've been a way to speed this process such as using another function that uses vectorization.
-
 ### Files
 
 ```
@@ -83,6 +79,10 @@ In doing this project, I've found a few difficulties that you might find insight
 - [seaborn](https://seaborn.pydata.org/)
 - [re](https://docs.python.org/3/library/re.html)
 - [scikit-learn](https://scikit-learn.org/stable/)
+
+### Improvements and Difficulty
+
+In doing this project, I've found a few difficulties that you might find insights on. Firstly, the amount of NaN value in the project is a lot. You could spend more time on data-preprocessing in order to increase the metrics for the machine learning model. For example, take a look at the NaN values on each columns, and think of how you take on every single on of them. Even experts in data science will think twice what to do about NaN values, since every single one of them is case by case. Secondly and lastly, the rows of the dataset is also a lot. So, in doing the problems, I have to wait for an hour to finish separating the dataset to the complete offer and incomplete offer. I think there could've been a way to speed this process such as using another function that uses vectorization.
 
 ### References
 
